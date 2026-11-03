@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Trivia Maker</title>
+<meta name="theme-color" content="#14213d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Trivia">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./style.css"></head>
+<body><main>
+<header><h1>Trivia Maker</h1><button id="gear" class="ghost" aria-label="Settings">Settings</button></header>
+<section id="start">
+<label for="topic">What should the questions be about?</label>
+<input id="topic" placeholder="Ancient Rome, jazz, black holes…" maxlength="80" autocomplete="off">
+<button id="go" class="primary">Generate 10 questions</button>
+<p id="msg" role="status"></p>
+</section>
+<section id="quiz" hidden>
+<p id="prog"></p><h2 id="q"></h2><div id="choices"></div>
+<p id="exp" role="status"></p><button id="next" class="primary" hidden>Next</button>
+</section>
+<section id="result" hidden>
+<p>Your score</p><h2 id="score"></h2>
+<button id="again" class="primary">New topic</button>
+</section>
+</main>
+<dialog id="settings"><form method="dialog">
+<h3>Settings</h3>
+<label for="prov">AI provider</label>
+<select id="prov"><option value="anthropic">Claude (Anthropic)</option><option value="deepseek">DeepSeek</option></select>
+<label for="key">API key</label>
+<input id="key" type="password" autocomplete="off" placeholder="Stored only on this device">
+<label for="model">Model (optional)</label>
+<input id="model" placeholder="Leave blank for default">
+<div class="row"><button value="cancel" class="ghost">Cancel</button><button id="save" value="ok" class="primary">Save settings</button></div>
+</form></dialog>
+<script src="./app.js"></script></body></html>
